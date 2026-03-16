@@ -184,7 +184,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="mailto:furqazaheerxi6@gmail.com" className="px-10 py-5 bg-sepia text-parchment font-display font-bold text-lg hover:bg-sepia-light transition-all glow-sepia">furqazaheerxi6@gmail.com</a>
-                <a href="https://www.linkedin.com/in/furqan-zaheer-ab5a52306" className="px-10 py-5 border-2 border-ink text-ink font-display font-bold text-lg hover:bg-ink hover:text-parchment transition-all" target="_blank" rel="noopener noreferrer">LinkedIn</a>          </div>
+                <a href="https://www.linkedin.com/in/furqan-amir-zaheer-299959333" className="px-10 py-5 border-2 border-ink text-ink font-display font-bold text-lg hover:bg-ink hover:text-parchment transition-all" target="_blank" rel="noopener noreferrer">LinkedIn</a>          </div>
           <p className="mt-12 font-mono text-sm text-stone">Vancouver, BC · March 2026</p>
         </div>
       </section>
