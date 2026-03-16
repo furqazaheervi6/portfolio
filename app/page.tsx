@@ -1,158 +1,129 @@
 'use client';
 import { useState } from 'react';
 
-const experience = [
-  { role: 'ML Engineer', org: 'UBC MINT', period: 'Jul 2025 - Present', desc: 'Developed ML models for EEG signal interpretation in neuroengineering applications. Supporting development of rehabilitation device for neural motor development.' },
-  { role: 'BD & ML Specialist', org: 'Muscle to Movement', period: 'Nov 2025 - Present', desc: 'Designed AI/ML pipelines for prosthetic ambidextrous hand. Constructed algorithms using Numpy, Pandas, PyTorch, TensorFlow for biotech applications.' },
-  { role: 'B2B Sales Optimization Intern', org: 'Upgraded', period: 'Jan 2026 - Present', desc: 'Optimized sales workflows by analyzing lead pipelines and CRM metrics. Generated insights on customer acquisition trends and operational efficiency.' },
-  { role: 'Operations Intern', org: 'NeuraVia, Inc.', period: 'Sep 2025 - Jan 2026', desc: 'Coordinated cross-functional teams. Designed scalable systems for hiring, onboarding, compliance to keep company investor-ready.' },
+const skills = [
+  { category: 'Embedded Systems', items: ['STM32', 'ADS1299', 'SPI/I2C/UART', 'ADC integration'] },
+  { category: 'PCB Design', items: ['KiCad', 'Signal integrity', 'Sub-1μV noise floor', 'Biopotential AFE'] },
+  { category: 'Machine Learning', items: ['CNN / KNN / Random Forest', 'Signal feature extraction', 'Cross-validation', 'ROC/PR curve analysis'] },
+  { category: 'Programming', items: ['Python', 'R', 'MATLAB', 'Git/GitHub'] },
+  { category: 'Biophysics & Math', items: ['EEG signal processing', 'Biopotential acquisition', 'Statistics & data analysis', 'Differential equations'] },
+  { category: 'Lab Skills', items: ['Electrode impedance testing', 'Hardware iteration', 'Oscilloscope/logic analyzer', 'Failure diagnosis'] },
 ];
 
-const skills = [
-  { cat: 'Machine Learning', items: ['PyTorch', 'TensorFlow', 'Numpy/Pandas', 'Signal Processing', 'Feature Engineering'] },
-  { cat: 'Technical Engineering', items: ['EEG Systems', 'Biopotential Sensors', 'Hardware-Software Integration', 'Data Pipelines'] },
-  { cat: 'Programming', items: ['Python', 'R', 'MATLAB', 'Git/GitHub', 'Statistical Analysis'] },
-  { cat: 'Operations & Sales', items: ['B2B Sales', 'CRM Analytics', 'Workflow Optimization', 'Cross-functional Coordination'] },
+const projects = [
+  {
+    title: 'MINT — MindTap EEG/BCI System',
+    subtitle: 'Neurotechnology Research Platform',
+    description: 'ML Engineer on UBC MINT’s MindTap EEG/BCI competition project. Built and evaluated CNN, KNN, and Random Forest classifiers for EEG-based brain-computer interface, reporting accuracy, precision, recall, F1, and AUC/AP on ROC/PR curves. Worked with OpenBCI Cyton hardware, 8-channel acquisition at 128 Hz, and led signal reliability experiments including AGND removal and impedance mitigation with polymer electrodes.',
+    tags: ['OpenBCI Cyton', 'Python', 'Scikit-learn', 'EEG', 'CNN', 'Signal Processing'],
+    metrics: ['CNN/KNN/RF classifiers', 'ROC/PR + AUC/AP', '8-channel @ 128 Hz', 'Hardware-validated pipeline'],
+  },
+  {
+    title: 'Muscle to Movement',
+    subtitle: 'EMG-Driven Prosthetic Control System',
+    description: 'BD & ML Specialist at Muscle to Movement, designing AI/ML pipelines for a prosthetic ambidextrous hand. Built gesture classification system achieving 92% accuracy across 6 hand movements with a <80ms latency pipeline using PyTorch and TensorFlow. Iterated across 3 hardware revisions using surface EMG electrodes, dual-stage INA amplifier circuit, and LDA/deep learning classifiers.',
+    tags: ['EMG', 'PyTorch', 'TensorFlow', 'INA amplifier', 'Python', 'Hardware iteration'],
+    metrics: ['92% gesture accuracy', '<80ms latency', '6 hand movements', '3 hardware revisions'],
+  },
 ];
 
 export default function Home() {
-  const [section, setSection] = useState('intro');
-
+  const [activeSection, setActiveSection] = useState('hero');
   return (
-    <main className="min-h-screen font-body etching-bg">
-      {/* Atlarion Dynamic Background */}
-      <div className="atlarion-background">
-        <div className="atlarion-layer"></div>
-        <div className="atlarion-layer"></div>
-        <div className="atlarion-layer"></div>
-      </div>
-      <div className="geometric-accent" style={{zIndex: -1}}>σ</div>
-      <div className="geometric-accent" style={{zIndex: -1}}>⧈</div>
-      {/* Ornamental Header */}
-      <header className="fixed top-0 w-full z-50 bg-parchment/95 backdrop-blur-sm border-b-2 border-parchment-deeper">
-        <div className="max-w-6xl mx-auto px-8 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-10 h-10 border-2 border-sepia rounded-full flex items-center justify-center">
-              <span className="font-display text-sepia text-lg font-bold">Σ</span>
-            </div>
-            <div>
-              <h1 className="font-display text-xl font-bold text-ink tracking-wide">FURQAN ZAHEER</h1>
-              <p className="text-xs text-ink-mid italic">Biophysics & Machine Learning</p>
-            </div>
-          </div>
-          <nav className="flex gap-6">
-            {['About', 'Experience', 'Skills', 'Contact'].map(s => (
-              <button key={s} onClick={() => setSection(s.toLowerCase())} className="text-sm font-body text-ink-light hover:text-sepia transition-colors uppercase tracking-wider">{s}</button>
+    <main className="min-h-screen bg-[#0a0a0a] text-gray-100">
+      {/* Nav */}
+      <nav className="fixed top-0 w-full z-50 bg-[#0a0a0a]/90 backdrop-blur-sm border-b border-white/5">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <span className="font-mono text-sm text-[#e85d04] tracking-wider">FZ</span>
+          <div className="flex gap-8 text-sm text-gray-400">
+            {['About', 'Projects', 'Skills', 'Contact'].map((s) => (
+              <a key={s} href={`#${s.toLowerCase()}`} className="hover:text-white transition-colors">{s}</a>
             ))}
-          </nav>
+          </div>
         </div>
-      </header>
+      </nav>
 
       {/* Hero */}
-      <section className="min-h-screen flex flex-col justify-center items-center px-8 pt-28 pb-20 relative">
-        <div className="absolute top-32 left-1/2 -translate-x-1/2 w-64 h-64 opacity-10">
-          <svg viewBox="0 0 200 200" className="w-full h-full text-sepia-light">
-            <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeWidth="1" />
-            <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" strokeWidth="1" />
-            <text x="100" y="110" textAnchor="middle" className="font-display text-3xl" fill="currentColor">ΣΠΩ</text>
-          </svg>
+      <section id="hero" className="min-h-screen flex flex-col justify-center px-6 pt-20 max-w-6xl mx-auto">
+        <div className="mb-4">
+          <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">Engineering Portfolio</span>
         </div>
-        <div className="max-w-4xl text-center z-10 space-y-6 animate-fade-in">
-          <div className="ornament mb-8">
-            <span className="font-display text-sm tracking-widest uppercase text-sepia">Engineering Portfolio</span>
-          </div>
-          <h1 className="font-display text-7xl md:text-8xl font-black text-ink tracking-tight leading-none mb-4">
-            FURQAN<br/><span className="text-ink-mid">ZAHEER</span>
-          </h1>
-          <p className="text-2xl text-ink-mid max-w-2xl mx-auto leading-relaxed italic">
-            Interdisciplinary biophysics undergraduate applying machine learning and computational methods to neurotechnology, biomedical systems, and data-driven engineering.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 mt-10 font-mono text-xs">
-            {['BSc Biology & Physics', 'UBC 2028', 'Vancouver, BC', 'furqazaheerxi6@gmail.com'].map(tag => (
-              <span key={tag} className="px-4 py-2 parchment-card text-ink-mid tracking-wide">{tag}</span>
-            ))}
-          </div>
-          <div className="flex gap-4 justify-center mt-12">
-            <a href="#experience" className="px-8 py-4 bg-sepia text-parchment font-display font-bold uppercase text-sm tracking-wider hover:bg-sepia-light transition-all glow-sepia">View Work</a>
-            <a href="mailto:furqazaheerxi6@gmail.com" className="px-8 py-4 border-2 border-ink-mid text-ink font-display font-semibold uppercase text-sm tracking-wider hover:bg-ink hover:text-parchment transition-all">Contact</a>
-          </div>
+        <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6">
+          Furqan<br />
+          <span className="text-gray-500">Zaheer</span>
+        </h1>
+        <p className="text-xl text-gray-400 max-w-2xl mb-8 leading-relaxed">
+          Biophysics undergrad building at the intersection of neural engineering, machine learning, and biological systems — turning signal into understanding.
+        </p>
+        <div className="flex flex-wrap gap-3 mb-12 font-mono text-sm">
+          {['BSc Biology & Physics, UBC (2028)', 'Vancouver, BC'].map((tag) => (
+            <span key={tag} className="px-3 py-1.5 border border-white/10 text-gray-400 rounded">{tag}</span>
+          ))}
         </div>
-        <div className="absolute bottom-10 scroll-hint">
-          <svg className="w-6 h-6 text-sepia" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+        <div className="flex gap-4">
+          <a href="#projects" className="px-6 py-3 bg-[#e85d04] text-white text-sm font-medium hover:bg-[#d44d00] transition-colors rounded">
+            View Projects
+          </a>
+          <a href="mailto:furqazaheerxi6@gmail.com" className="px-6 py-3 border border-white/20 text-gray-300 text-sm font-medium hover:border-white/40 transition-colors rounded">
+            Get in Touch
+          </a>
         </div>
       </section>
 
       {/* About */}
-      <section id="about" className="py-32 px-8 bg-gradient-to-b from-parchment to-parchment-dark relative">
-        <div className="max-w-5xl mx-auto">
-          <div className="ornament mb-12">
-            <h2 className="font-display text-5xl font-bold text-ink">Philosophy</h2>
+      <section id="about" className="py-32 px-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">About</span>
+            <h2 className="text-4xl font-bold mt-3 mb-6">Engineering Philosophy</h2>
+            <p className="text-gray-400 leading-relaxed mb-4">
+              I study Biology and Physics at UBC because living systems are the most complex engineering problems that exist. Understanding how ion channels fire, how muscles actuate, and how nerves encode signals gives me a different lens for approaching hardware design and machine learning.
+            </p>
+            <p className="text-gray-400 leading-relaxed mb-4">
+              I move between domains deliberately. My thinking is shaped by the overlap between biophysics, computational methods, and experimental design — not by any single discipline. I am drawn to problems that require holding multiple frameworks simultaneously.
+            </p>
+            <p className="text-gray-400 leading-relaxed">
+              My iteration loop: Build → Test → Analyze → Improve. I do not stop when something works. I stop when I understand why it works.
+            </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6 text-lg text-ink-light leading-relaxed">
-              <p className="first-letter:text-6xl first-letter:font-display first-letter:font-bold first-letter:text-sepia first-letter:mr-2 first-letter:float-left">
-                Bridging living systems and engineered systems. I study Biology and Physics at UBC because understanding how ion channels fire, how muscles actuate, and how neural signals encode information shapes how I approach hardware design and machine learning.
-              </p>
-              <p>
-                My work spans EEG-based neurotechnology, prosthetic control systems, and biopotential signal processing — applying computational rigor to biological complexity.
-              </p>
+          <div className="space-y-4">
+            <div className="border border-white/10 p-6 rounded">
+              <div className="font-mono text-[#e85d04] text-xs mb-2 uppercase tracking-wider">Research Interests</div>
+              <ul className="text-gray-400 text-sm space-y-2">
+                <li>→ Neural signal acquisition and EEG systems</li>
+                <li>→ Machine learning for biosignal interpretation</li>
+                <li>→ Biopotential hardware and sensor integration</li>
+                <li>→ Computational biophysics and data-driven modeling</li>
+              </ul>
             </div>
-            <div className="parchment-card p-8 space-y-6">
-              <div>
-                <h3 className="font-display text-sepia text-sm uppercase tracking-widest mb-3">Education</h3>
-                <p className="text-ink font-semibold text-lg">Bachelor of Science</p>
-                <p className="text-ink-mid">Biology & Physics, UBC — Expected 2028</p>
-              </div>
-              <div>
-                <h3 className="font-display text-sepia text-sm uppercase tracking-widest mb-3">Core Interests</h3>
-                <ul className="space-y-2 text-ink-light">
-                  <li className="flex items-start gap-2"><span className="text-sepia mt-1">→</span> Neural signal processing & EEG systems</li>
-                  <li className="flex items-start gap-2"><span className="text-sepia mt-1">→</span> Machine learning for biosignal interpretation</li>
-                  <li className="flex items-start gap-2"><span className="text-sepia mt-1">→</span> Hardware-software integration</li>
-                  <li className="flex items-start gap-2"><span className="text-sepia mt-1">→</span> Data-driven optimization</li>
-                </ul>
-              </div>
+            <div className="border border-white/10 p-6 rounded">
+              <div className="font-mono text-[#e85d04] text-xs mb-2 uppercase tracking-wider">Education</div>
+              <p className="text-gray-300 text-sm font-medium">BSc Biology and Physics</p>
+              <p className="text-gray-500 text-sm">University of British Columbia — Expected 2028</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Experience */}
-      <section id="experience" className="py-32 px-8">
+      {/* Projects */}
+      <section id="projects" className="py-32 px-6 bg-white/[0.02]">
         <div className="max-w-6xl mx-auto">
-          <div className="ornament mb-16">
-            <h2 className="font-display text-5xl font-bold text-ink">Experience</h2>
-          </div>
-          <div className="space-y-6">
-            {experience.map((exp, i) => (
-              <div key={i} className="greek-border p-8 card-hover">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                  <div>
-                    <h3 className="font-display text-2xl font-bold text-ink">{exp.role}</h3>
-                    <p className="text-sepia font-semibold text-lg">{exp.org}</p>
-                  </div>
-                  <span className="font-mono text-sm text-ink-mid px-4 py-2 bg-parchment-dark rounded">{exp.period}</span>
+          <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">Projects</span>
+          <h2 className="text-4xl font-bold mt-3 mb-16">Key Work</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {projects.map((p, i) => (
+              <div key={i} className="border border-white/10 p-8 rounded hover:border-[#e85d04]/40 transition-colors group">
+                <div className="font-mono text-[#e85d04] text-xs mb-1 uppercase tracking-wider">{p.subtitle}</div>
+                <h3 className="text-xl font-bold mb-4">{p.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">{p.description}</p>
+                <div className="grid grid-cols-2 gap-2 mb-6">
+                  {p.metrics.map((m, j) => (
+                    <div key={j} className="bg-white/5 px-2 py-1.5 rounded text-xs text-gray-300 font-mono">{m}</div>
+                  ))}
                 </div>
-                <p className="text-ink-light leading-relaxed">{exp.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section id="skills" className="py-32 px-8 bg-gradient-to-b from-parchment-dark to-parchment">
-        <div className="max-w-6xl mx-auto">
-          <div className="ornament mb-16">
-            <h2 className="font-display text-5xl font-bold text-ink">Technical Stack</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {skills.map((sk, i) => (
-              <div key={i} className="parchment-card p-8">
-                <h3 className="font-display text-sepia text-sm uppercase tracking-widest mb-6 pb-3 border-b-2 border-sepia/20">{sk.cat}</h3>
                 <div className="flex flex-wrap gap-2">
-                  {sk.items.map((item, j) => (
-                    <span key={j} className="px-3 py-1.5 bg-parchment-deeper/50 text-ink-mid text-sm rounded border border-parchment-deeper">{item}</span>
+                  {p.tags.map((tag, j) => (
+                    <span key={j} className="text-xs px-2 py-1 border border-white/10 text-gray-500 rounded">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -161,39 +132,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="py-32 px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="ornament mb-12">
-            <h2 className="font-display text-5xl font-bold text-ink">Connect</h2>
-          </div>
-          <p className="text-xl text-ink-mid mb-10 leading-relaxed">
-            Open to research collaborations, technical roles, and conversations about neurotechnology, machine learning, and biophysics engineering.
+      {/* Skills */}
+      <section id="skills" className="py-32 px-6 max-w-6xl mx-auto">
+        <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">Skills</span>
+        <h2 className="text-4xl font-bold mt-3 mb-16">Technical Stack</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {skills.map((s, i) => (
+            <div key={i} className="border border-white/10 p-6 rounded">
+              <div className="font-mono text-[#e85d04] text-xs mb-4 uppercase tracking-wider">{s.category}</div>
+              <ul className="space-y-2">
+                {s.items.map((item, j) => (
+                  <li key={j} className="text-gray-400 text-sm flex items-center gap-2">
+                    <span className="w-1 h-1 bg-[#e85d04] rounded-full flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
 
-          <div className="mt-12 text-center">
-            <div className="text-lg text-ink-mid mb-4 font-display">
-              <span className="text-sepia">◇</span> Interdisciplinary Exploration <span className="text-sepia">◇</span>
-            </div>
-            <div className="text-sm text-stone leading-relaxed max-w-2xl mx-auto">
-              My interests span from <span className="text-ink font-bold">neuroscience</span> and <span className="text-ink font-bold">applied physics</span>, 
-              through <span className="text-ink font-bold">engineering physics</span> and <span className="text-ink font-bold">battery technology</span>, 
-              to <span className="text-ink font-bold">applied chemical physics</span> — exploring the intersections where biology, 
-              physics, and engineering converge to solve complex problems.
-            </div>
-          </div>
+      {/* Contact */}
+      <section id="contact" className="py-32 px-6 bg-white/[0.02]">
+        <div className="max-w-6xl mx-auto text-center">
+          <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">Contact</span>
+          <h2 className="text-4xl font-bold mt-3 mb-6">Let&#39;s Build Something</h2>
+          <p className="text-gray-400 max-w-xl mx-auto mb-10">
+            Open to research roles, neurotechnology teams, and engineering conversations at the intersection of biology and computation.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="mailto:furqazaheerxi6@gmail.com" className="px-10 py-5 bg-sepia text-parchment font-display font-bold text-lg hover:bg-sepia-light transition-all glow-sepia">furqazaheerxi6@gmail.com</a>
-                <a href="https://www.linkedin.com/in/furqan-amir-zaheer-299959333" className="px-10 py-5 border-2 border-ink text-ink font-display font-bold text-lg hover:bg-ink hover:text-parchment transition-all" target="_blank" rel="noopener noreferrer">LinkedIn</a>          </div>
-          <p className="mt-12 font-mono text-sm text-stone">Vancouver, BC · March 2026</p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <a href="mailto:furqazaheerxi6@gmail.com" className="px-8 py-4 bg-[#e85d04] text-white font-medium hover:bg-[#d44d00] transition-colors rounded">
+              furqazaheerxi6@gmail.com
+            </a>
+            <a href="tel:7782311590" className="px-8 py-4 border border-white/20 text-gray-300 hover:border-white/40 transition-colors rounded">
+              778-231-1590
+            </a>
+          </div>
+          <p className="mt-8 text-gray-600 text-sm font-mono">Vancouver, BC — March 2026</p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-8 border-t-2 border-parchment-deeper">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-display text-sm text-ink-mid tracking-wider">FURQAN ZAHEER — MMXXVI</p>
-          <p className="font-mono text-xs text-stone">Biology × Physics × Machine Learning</p>
+      <footer className="py-8 px-6 border-t border-white/5">
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          <span className="font-mono text-gray-600 text-sm">Furqan Zaheer — 2026</span>
+          <span className="font-mono text-gray-700 text-xs">Biophysics × ML × Hardware</span>
         </div>
       </footer>
     </main>
