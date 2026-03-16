@@ -20,6 +20,14 @@ export default function Home() {
 
   return (
     <main className="min-h-screen font-body etching-bg">
+      {/* Atlarion Dynamic Background */}
+      <div className="atlarion-background">
+        <div className="atlarion-layer"></div>
+        <div className="atlarion-layer"></div>
+        <div className="atlarion-layer"></div>
+      </div>
+      <div className="geometric-accent" style={{zIndex: -1}}>σ</div>
+      <div className="geometric-accent" style={{zIndex: -1}}>⧈</div>
       {/* Ornamental Header */}
       <header className="fixed top-0 w-full z-50 bg-parchment/95 backdrop-blur-sm border-b-2 border-parchment-deeper">
         <div className="max-w-6xl mx-auto px-8 py-5 flex items-center justify-between">
