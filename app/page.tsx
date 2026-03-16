@@ -169,6 +169,18 @@ export default function Home() {
           </div>
           <p className="text-xl text-ink-mid mb-10 leading-relaxed">
             Open to research collaborations, technical roles, and conversations about neurotechnology, machine learning, and biophysics engineering.
+
+          <div className="mt-12 text-center">
+            <div className="text-lg text-ink-mid mb-4 font-display">
+              <span className="text-sepia">◇</span> Interdisciplinary Exploration <span className="text-sepia">◇</span>
+            </div>
+            <div className="text-sm text-stone leading-relaxed max-w-2xl mx-auto">
+              My interests span from <span className="text-ink font-bold">neuroscience</span> and <span className="text-ink font-bold">applied physics</span>, 
+              through <span className="text-ink font-bold">engineering physics</span> and <span className="text-ink font-bold">battery technology</span>, 
+              to <span className="text-ink font-bold">applied chemical physics</span> — exploring the intersections where biology, 
+              physics, and engineering converge to solve complex problems.
+            </div>
+          </div>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="mailto:furqazaheerxi6@gmail.com" className="px-10 py-5 bg-sepia text-parchment font-display font-bold text-lg hover:bg-sepia-light transition-all glow-sepia">furqazaheerxi6@gmail.com</a>
