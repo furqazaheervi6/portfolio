@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
 :root {
-  --accent: #e85d04;
+  --parchment: #F5E6C8;
+  --parchment-dark: #E8D5A3;
+  --parchment-deeper: #D4BC7A;
+  --ink: #2C1F0E;
+  --ink-light: #4A3520;
+  --ink-mid: #6B4F2A;
+  --sepia: #8B6914;
+  --sepia-light: #C49A2E;
+  --stone: #9E8B6E;
+  --glow: #F9C84A;
 }
 
 html {
@@ -11,12 +22,100 @@ html {
 }
 
 body {
-  background: #0a0a0a;
-  color: #e5e5e5;
-  font-family: 'Inter', sans-serif;
+  background-color: var(--parchment);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  background-image: 
+    radial-gradient(ellipse at 20% 20%, rgba(212,188,122,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(196,154,46,0.15) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B6914' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 ::selection {
-  background: #e85d04;
-  color: white;
+  background: var(--sepia);
+  color: var(--parchment);
+}
+
+/* Classical ornamental divider */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--sepia-light);
+}
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--sepia-light), transparent);
+}
+
+/* Greek key border */
+.greek-border {
+  border: 2px solid var(--parchment-deeper);
+  position: relative;
+}
+.greek-border::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid var(--parchment-deeper);
+  opacity: 0.5;
+}
+
+/* Parchment card */
+.parchment-card {
+  background: linear-gradient(135deg, rgba(245,230,200,0.8), rgba(232,213,163,0.6));
+  border: 1px solid var(--parchment-deeper);
+  backdrop-filter: blur(2px);
+  position: relative;
+}
+.parchment-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,0,0,0.03) 100%);
+  pointer-events: none;
+}
+
+/* Serif display */
+.font-display {
+  font-family: 'Cinzel', serif;
+}
+.font-body {
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+/* Glowing effect for accent elements */
+.glow-sepia {
+  box-shadow: 0 0 20px rgba(249,200,74,0.3), 0 0 60px rgba(249,200,74,0.1);
+}
+
+/* Etching texture overlay for sections */
+.etching-bg {
+  position: relative;
+}
+.etching-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='none'/%3E%3Crect x='0' y='0' width='1' height='1' fill='rgba(44,31,14,0.025)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Scroll hint */
+@keyframes scrollDown {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.5; }
+}
+.scroll-hint { animation: scrollDown 2s ease-in-out infinite; }
+
+/* Hover lift for cards */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(44,31,14,0.15);
 }
