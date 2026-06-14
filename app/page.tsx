@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import AtlarionBackground from './components/AtlarionBackground';
 
 const skills = [
   { category: 'Embedded Systems', items: ['STM32', 'ADS1299', 'SPI/I2C/UART', 'ADC integration'] },
@@ -32,50 +33,58 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#0a0a0a] text-gray-100">
       {/* Nav */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0a0a0a]/90 backdrop-blur-sm border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <span className="font-mono text-sm text-[#e85d04] tracking-wider">FZ</span>
+      <nav className="fixed top-4 inset-x-0 z-50 px-4">
+        <div className="max-w-3xl mx-auto flex items-center justify-between gap-6 rounded-full border border-white/10 bg-black/50 backdrop-blur-md px-6 py-3">
+          <span className="font-mono text-sm text-[#E34234] tracking-wider">FZ</span>
           <div className="flex gap-8 text-sm text-gray-400">
             {['About', 'Projects', 'Skills', 'Contact'].map((s) => (
               <a key={s} href={`#${s.toLowerCase()}`} className="hover:text-white transition-colors">{s}</a>
             ))}
           </div>
+          <a href="mailto:furqazaheerxi6@gmail.com" className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-white text-black text-xs font-medium px-4 py-2 hover:bg-gray-200 transition-colors">
+            Contact <span aria-hidden>→</span>
+          </a>
         </div>
       </nav>
 
       {/* Hero */}
-      <section id="hero" className="min-h-screen flex flex-col justify-center px-6 pt-20 max-w-6xl mx-auto">
-        <div className="mb-4">
-          <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">Engineering Portfolio</span>
-        </div>
-        <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-6">
-          Furqan<br />
-          <span className="text-gray-500">Zaheer</span>
-        </h1>
-        <p className="text-xl text-gray-400 max-w-2xl mb-8 leading-relaxed">
-          Biophysics undergrad building at the intersection of neural engineering, machine learning, and biological systems — turning signal into understanding.
-        </p>
-        <div className="flex flex-wrap gap-3 mb-12 font-mono text-sm">
-          {['BSc Biology & Physics, UBC (2028)', 'Vancouver, BC'].map((tag) => (
-            <span key={tag} className="px-3 py-1.5 border border-white/10 text-gray-400 rounded">{tag}</span>
-          ))}
-        </div>
-        <div className="flex gap-4">
-          <a href="#projects" className="px-6 py-3 bg-[#e85d04] text-white text-sm font-medium hover:bg-[#d44d00] transition-colors rounded">
-            View Projects
-          </a>
-          <a href="mailto:furqazaheerxi6@gmail.com" className="px-6 py-3 border border-white/20 text-gray-300 text-sm font-medium hover:border-white/40 transition-colors rounded">
-            Get in Touch
-          </a>
+      <section id="hero" className="relative min-h-screen flex flex-col justify-center px-6 pt-20 overflow-hidden">
+        <AtlarionBackground />
+        <div className="relative z-10 max-w-6xl mx-auto w-full">
+          <div className="mb-4">
+            <span className="font-mono text-[#E34234] text-sm tracking-widest uppercase">Engineering Portfolio</span>
+          </div>
+          <h1 className="font-cinzel text-6xl md:text-8xl font-bold tracking-tight mb-6 drop-shadow-2xl">
+            Furqan<br />
+            <span className="text-gray-400">Zaheer</span>
+          </h1>
+          <p className="text-xl text-gray-300 max-w-2xl mb-8 leading-relaxed drop-shadow-lg">
+            Biophysics undergrad building at the intersection of neural engineering, machine learning, and biological systems — turning signal into understanding.
+          </p>
+          <div className="flex flex-wrap gap-3 mb-12 font-mono text-sm">
+            {['BSc Biology & Physics, UBC (2028)', 'Vancouver, BC'].map((tag) => (
+              <span key={tag} className="px-3 py-1.5 border border-white/10 bg-black/30 text-gray-300 rounded backdrop-blur-sm">{tag}</span>
+            ))}
+          </div>
+          <div className="flex gap-4">
+            <a href="#projects" className="inline-flex items-center gap-2 px-6 py-3 bg-[#E34234] text-white text-sm font-medium hover:bg-[#C2362A] transition-colors rounded-full">
+              View Projects <span aria-hidden>→</span>
+            </a>
+            <a href="mailto:furqazaheerxi6@gmail.com" className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 bg-black/30 text-gray-300 text-sm font-medium hover:border-white/40 transition-colors rounded-full backdrop-blur-sm">
+              Get in Touch
+            </a>
+          </div>
         </div>
       </section>
 
       {/* About */}
-      <section id="about" className="py-32 px-6 max-w-6xl mx-auto">
+      <section id="about" className="py-32 px-6 max-w-6xl mx-auto border-t border-white/5">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div>
-            <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">About</span>
-            <h2 className="text-4xl font-bold mt-3 mb-6">Engineering Philosophy</h2>
+            <span className="inline-flex items-center gap-2 font-mono text-[#E34234] text-xs tracking-widest uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E34234]" /> About
+            </span>
+            <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4 mb-6">Engineering Philosophy</h2>
             <p className="text-gray-400 leading-relaxed mb-4">
               I study Biology and Physics at UBC because living systems are the most complex engineering problems that exist. Understanding how ion channels fire, how muscles actuate, and how nerves encode signals gives me a different lens for approaching hardware design and machine learning.
             </p>
@@ -87,8 +96,10 @@ export default function Home() {
             </p>
           </div>
           <div className="space-y-4">
-            <div className="border border-white/10 p-6 rounded">
-              <div className="font-mono text-[#e85d04] text-xs mb-2 uppercase tracking-wider">Research Interests</div>
+            <div className="border border-white/10 p-6 rounded-2xl">
+              <div className="inline-flex items-center gap-2 font-mono text-[#E34234] text-xs mb-3 uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E34234]" /> Research Interests
+              </div>
               <ul className="text-gray-400 text-sm space-y-2">
                 <li>→ Neural signal acquisition and EEG systems</li>
                 <li>→ Machine learning for biosignal interpretation</li>
@@ -96,8 +107,10 @@ export default function Home() {
                 <li>→ Computational biophysics and data-driven modeling</li>
               </ul>
             </div>
-            <div className="border border-white/10 p-6 rounded">
-              <div className="font-mono text-[#e85d04] text-xs mb-2 uppercase tracking-wider">Education</div>
+            <div className="border border-white/10 p-6 rounded-2xl">
+              <div className="inline-flex items-center gap-2 font-mono text-[#E34234] text-xs mb-3 uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E34234]" /> Education
+              </div>
               <p className="text-gray-300 text-sm font-medium">BSc Biology and Physics</p>
               <p className="text-gray-500 text-sm">University of British Columbia — Expected 2028</p>
             </div>
@@ -106,14 +119,18 @@ export default function Home() {
       </section>
 
       {/* Projects */}
-      <section id="projects" className="py-32 px-6 bg-white/[0.02]">
+      <section id="projects" className="py-32 px-6 bg-white/[0.02] border-t border-white/5">
         <div className="max-w-6xl mx-auto">
-          <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">Projects</span>
-          <h2 className="text-4xl font-bold mt-3 mb-16">Key Work</h2>
+          <span className="inline-flex items-center gap-2 font-mono text-[#E34234] text-xs tracking-widest uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E34234]" /> Projects
+          </span>
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4 mb-16">Key Work</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {projects.map((p, i) => (
-              <div key={i} className="border border-white/10 p-8 rounded hover:border-[#e85d04]/40 transition-colors group">
-                <div className="font-mono text-[#e85d04] text-xs mb-1 uppercase tracking-wider">{p.subtitle}</div>
+              <div key={i} className="border border-white/10 p-8 rounded-2xl hover:border-[#E34234]/40 transition-colors group">
+                <div className="inline-flex items-center gap-2 font-mono text-[#E34234] text-xs mb-2 uppercase tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E34234]" /> {p.subtitle}
+                </div>
                 <h3 className="text-xl font-bold mb-4">{p.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">{p.description}</p>
                 <div className="grid grid-cols-2 gap-2 mb-6">
@@ -133,17 +150,19 @@ export default function Home() {
       </section>
 
       {/* Skills */}
-      <section id="skills" className="py-32 px-6 max-w-6xl mx-auto">
-        <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">Skills</span>
-        <h2 className="text-4xl font-bold mt-3 mb-16">Technical Stack</h2>
+      <section id="skills" className="py-32 px-6 max-w-6xl mx-auto border-t border-white/5">
+        <span className="inline-flex items-center gap-2 font-mono text-[#E34234] text-xs tracking-widest uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#E34234]" /> Skills
+        </span>
+        <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4 mb-16">Technical Stack</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {skills.map((s, i) => (
-            <div key={i} className="border border-white/10 p-6 rounded">
-              <div className="font-mono text-[#e85d04] text-xs mb-4 uppercase tracking-wider">{s.category}</div>
+            <div key={i} className="border border-white/10 p-6 rounded-2xl">
+              <div className="font-mono text-[#E34234] text-xs mb-4 uppercase tracking-wider">{s.category}</div>
               <ul className="space-y-2">
                 {s.items.map((item, j) => (
                   <li key={j} className="text-gray-400 text-sm flex items-center gap-2">
-                    <span className="w-1 h-1 bg-[#e85d04] rounded-full flex-shrink-0" />
+                    <span className="w-1 h-1 bg-[#E34234] rounded-full flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -154,18 +173,20 @@ export default function Home() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-32 px-6 bg-white/[0.02]">
+      <section id="contact" className="py-32 px-6 bg-white/[0.02] border-t border-white/5">
         <div className="max-w-6xl mx-auto text-center">
-          <span className="font-mono text-[#e85d04] text-sm tracking-widest uppercase">Contact</span>
-          <h2 className="text-4xl font-bold mt-3 mb-6">Let&#39;s Build Something</h2>
+          <span className="inline-flex items-center gap-2 font-mono text-[#E34234] text-xs tracking-widest uppercase">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E34234]" /> Contact
+          </span>
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight mt-4 mb-6">Let&#39;s Build Something</h2>
           <p className="text-gray-400 max-w-xl mx-auto mb-10">
             Open to research roles, neurotechnology teams, and engineering conversations at the intersection of biology and computation.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="mailto:furqazaheerxi6@gmail.com" className="px-8 py-4 bg-[#e85d04] text-white font-medium hover:bg-[#d44d00] transition-colors rounded">
-              furqazaheerxi6@gmail.com
+            <a href="mailto:furqazaheerxi6@gmail.com" className="inline-flex items-center gap-2 px-8 py-4 bg-[#E34234] text-white font-medium hover:bg-[#C2362A] transition-colors rounded-full">
+              furqazaheerxi6@gmail.com <span aria-hidden>→</span>
             </a>
-            <a href="tel:7782311590" className="px-8 py-4 border border-white/20 text-gray-300 hover:border-white/40 transition-colors rounded">
+            <a href="tel:7782311590" className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-gray-300 hover:border-white/40 transition-colors rounded-full">
               778-231-1590
             </a>
           </div>
