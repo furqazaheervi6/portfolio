@@ -34,16 +34,14 @@ export default function Home() {
     <main className="min-h-screen bg-[#0a0a0a] text-gray-100">
       {/* Nav */}
       <nav className="fixed top-4 inset-x-0 z-50 px-4">
-        <div className="max-w-3xl mx-auto flex items-center justify-between gap-6 rounded-full border border-white/10 bg-black/50 backdrop-blur-md px-6 py-3">
+        <div className="max-w-3xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center gap-6 rounded-full border border-white/10 bg-black/50 backdrop-blur-md px-6 py-3">
           <span className="font-mono text-sm text-[#E34234] tracking-wider">FZ</span>
-          <div className="flex gap-8 text-sm text-gray-400">
+          <div className="flex gap-8 text-sm text-gray-400 justify-self-center">
             {['About', 'Projects', 'Skills', 'Contact'].map((s) => (
               <a key={s} href={`#${s.toLowerCase()}`} className="hover:text-white transition-colors">{s}</a>
             ))}
           </div>
-          <a href="mailto:furqazaheerxi6@gmail.com" className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-white text-black text-xs font-medium px-4 py-2 hover:bg-gray-200 transition-colors">
-            Contact <span aria-hidden>→</span>
-          </a>
+          <span aria-hidden />
         </div>
       </nav>
 
@@ -54,7 +52,7 @@ export default function Home() {
           <div className="mb-4">
             <span className="font-mono text-[#E34234] text-sm tracking-widest uppercase">Engineering Portfolio</span>
           </div>
-          <h1 className="font-cinzel text-6xl md:text-8xl font-bold tracking-tight mb-6 drop-shadow-2xl">
+          <h1 className="font-grotesk text-7xl md:text-9xl font-bold tracking-tighter uppercase leading-[0.9] mb-6 drop-shadow-2xl">
             Furqan<br />
             <span className="text-gray-400">Zaheer</span>
           </h1>
@@ -70,7 +68,7 @@ export default function Home() {
             <a href="#projects" className="inline-flex items-center gap-2 px-6 py-3 bg-[#E34234] text-white text-sm font-medium hover:bg-[#C2362A] transition-colors rounded-full">
               View Projects <span aria-hidden>→</span>
             </a>
-            <a href="mailto:furqazaheerxi6@gmail.com" className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 bg-black/30 text-gray-300 text-sm font-medium hover:border-white/40 transition-colors rounded-full backdrop-blur-sm">
+            <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 bg-black/30 text-gray-300 text-sm font-medium hover:border-white/40 transition-colors rounded-full backdrop-blur-sm">
               Get in Touch
             </a>
           </div>
@@ -183,14 +181,11 @@ export default function Home() {
             Open to research roles, neurotechnology teams, and engineering conversations at the intersection of biology and computation.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <a href="mailto:furqazaheerxi6@gmail.com" className="inline-flex items-center gap-2 px-8 py-4 bg-[#E34234] text-white font-medium hover:bg-[#C2362A] transition-colors rounded-full">
+            <a href="mailto:furqazaheerxi6@gmail.com?subject=Portfolio%20Inquiry" className="inline-flex items-center gap-2 px-8 py-4 bg-[#E34234] text-white font-medium hover:bg-[#C2362A] transition-colors rounded-full">
               furqazaheerxi6@gmail.com <span aria-hidden>→</span>
             </a>
-            <a href="tel:7782311590" className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-gray-300 hover:border-white/40 transition-colors rounded-full">
-              778-231-1590
-            </a>
           </div>
-          <p className="mt-8 text-gray-600 text-sm font-mono">Vancouver, BC — March 2026</p>
+          <p className="mt-8 text-gray-600 text-sm font-mono">Vancouver, BC — June 2026</p>
         </div>
       </section>
 
