@@ -252,3 +252,232 @@ html {
   animation: columnShimmer 8s ease-in-out infinite;
   pointer-events: none;
 }
+
+/* ==========================================
+   PATTERN OS PROJECT HERO
+   ========================================== */
+@keyframes patternGridDrift {
+  0% { transform: translate3d(0, 0, 0); opacity: 0.28; }
+  50% { opacity: 0.5; }
+  100% { transform: translate3d(36px, 24px, 0); opacity: 0.28; }
+}
+
+@keyframes patternSweep {
+  0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+  18% { opacity: 0.75; }
+  55% { opacity: 0.22; }
+  100% { transform: translateX(165%) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes patternOrbit {
+  0% { transform: translate(-50%, -50%) rotate(0deg) scale(1); opacity: 0.34; }
+  50% { opacity: 0.72; }
+  100% { transform: translate(-50%, -50%) rotate(360deg) scale(1); opacity: 0.34; }
+}
+
+@keyframes patternCorePulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.94); box-shadow: 0 0 24px rgba(227, 66, 52, 0.6); }
+  50% { transform: translate(-50%, -50%) scale(1.08); box-shadow: 0 0 54px rgba(227, 66, 52, 0.95); }
+}
+
+@keyframes patternNodePulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.72; }
+  50% { transform: translate(-50%, -50%) scale(1.08); opacity: 1; }
+}
+
+@keyframes patternActivity {
+  0%, 100% { transform: scaleY(0.72); opacity: 0.55; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+.pattern-hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(227, 66, 52, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227, 66, 52, 0.12) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at 76% 48%, black 0%, transparent 62%);
+  animation: patternGridDrift 7s linear infinite;
+}
+
+.pattern-hero-sweep {
+  position: absolute;
+  inset: -20% 0;
+  z-index: 2;
+  width: 34%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(227, 66, 52, 0.18), rgba(96, 165, 250, 0.16), transparent);
+  filter: blur(12px);
+  animation: patternSweep 5.5s ease-in-out infinite;
+}
+
+.pattern-orbit {
+  position: absolute;
+  z-index: 3;
+  top: 49%;
+  left: 77%;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1px solid rgba(227, 66, 52, 0.4);
+}
+
+.pattern-orbit::before,
+.pattern-orbit::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #e34234;
+  box-shadow: 0 0 22px rgba(227, 66, 52, 0.9);
+}
+
+.pattern-orbit::before {
+  top: 8%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+}
+
+.pattern-orbit::after {
+  right: 13%;
+  bottom: 18%;
+  width: 5px;
+  height: 5px;
+  background: #60a5fa;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.9);
+}
+
+.pattern-orbit-outer {
+  width: 330px;
+  height: 330px;
+  transform: translate(-50%, -50%);
+  border-style: dashed;
+  animation: patternOrbit 18s linear infinite;
+}
+
+.pattern-orbit-inner {
+  width: 210px;
+  height: 210px;
+  transform: translate(-50%, -50%);
+  border-color: rgba(96, 165, 250, 0.32);
+  animation: patternOrbit 12s linear infinite reverse;
+}
+
+.pattern-core {
+  position: absolute;
+  z-index: 4;
+  top: 49%;
+  left: 77%;
+  width: 76px;
+  height: 76px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: radial-gradient(circle, rgba(227, 66, 52, 0.38), rgba(0, 0, 0, 0.62) 68%);
+  pointer-events: none;
+  animation: patternCorePulse 3.4s ease-in-out infinite;
+}
+
+.pattern-core span {
+  position: absolute;
+  inset: 22px;
+  border-radius: 50%;
+  background: #e34234;
+}
+
+.pattern-signal-node {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: patternNodePulse 3s ease-in-out infinite;
+}
+
+.pattern-signal-node::before {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  margin: 0 auto 6px;
+  border-radius: 50%;
+  background: #e34234;
+  box-shadow: 0 0 20px rgba(227, 66, 52, 0.95);
+}
+
+.pattern-signal-node span {
+  display: block;
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.58);
+  color: rgba(255, 255, 255, 0.72);
+  font: 10px/1.1 "JetBrains Mono", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.pattern-activity-bar {
+  flex: 1;
+  min-width: 0;
+  border-radius: 999px 999px 2px 2px;
+  background: linear-gradient(180deg, #f87171, #e34234 42%, rgba(96, 165, 250, 0.45));
+  transform-origin: bottom;
+  animation: patternActivity 2s ease-in-out infinite;
+}
+
+@media (max-width: 767px) {
+  .pattern-orbit,
+  .pattern-core,
+  .pattern-signal-node {
+    display: none;
+  }
+}
+
+.mindtap-static-shell {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(227, 66, 52, 0.18), transparent 34%),
+    radial-gradient(circle at 70% 24%, rgba(96, 165, 250, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(6, 6, 10, 0.98), rgba(25, 9, 12, 0.88));
+}
+
+.mindtap-static-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 72%);
+  animation: patternGridDrift 9s linear infinite;
+}
+
+.mindtap-static-shell::after {
+  content: "";
+  position: absolute;
+  inset: auto 12% 18px;
+  height: 32px;
+  border-radius: 999px;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.65), transparent 70%);
+  filter: blur(10px);
+}
+
+.mindtap-model-label {
+  position: absolute;
+  z-index: 3;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.48);
+  padding: 6px 9px;
+  color: rgba(255, 255, 255, 0.7);
+  font: 10px/1 "JetBrains Mono", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
