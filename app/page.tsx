@@ -108,6 +108,33 @@ const patternSignalNodes = [
 
 const patternActivity = [42, 68, 54, 82, 72, 96, 76, 88];
 
+const upcomingProjects = [
+  {
+    title: 'Neural Signal Toolkit',
+    status: 'Exploring',
+    description: 'Reusable acquisition, cleaning, feature extraction, and model-evaluation utilities for EEG and other biopotential signals.',
+    tags: ['Python', 'EEG', 'Signal Processing', 'ML'],
+  },
+  {
+    title: 'Biophysical Modeling Lab',
+    status: 'Thinking through',
+    description: 'A notebook-driven sandbox for ion channels, membrane dynamics, muscle activation, and mathematically grounded biological systems.',
+    tags: ['Biophysics', 'Differential Equations', 'Simulation'],
+  },
+  {
+    title: 'Pattern OS Research Layer',
+    status: 'In progress',
+    description: 'Extending Pattern OS with stronger memory, weekly synthesis, experiment tracking, and personal data pipelines for behavior change.',
+    tags: ['AI Agents', 'Notion', 'Calendar', 'Analytics'],
+  },
+  {
+    title: 'Systems Atlas',
+    status: 'Concept',
+    description: 'A visual knowledge base connecting architecture, history, mathematics, neurotechnology, and engineering patterns across domains.',
+    tags: ['Knowledge Graphs', 'Design', 'Research'],
+  },
+];
+
 export default function Home() {
   const [mindTapSlide, setMindTapSlide] = useState(0);
   return (
@@ -412,6 +439,38 @@ export default function Home() {
                   </>
                 )}
               </div>
+            ))}
+          </div>
+
+          <div className="mt-20 mb-8 flex items-end justify-between gap-6 border-b border-white/10 pb-4">
+            <div>
+              <div className="font-mono text-[#E34234] text-xs uppercase tracking-[0.28em]">Coming Soon</div>
+              <h3 className="mt-2 text-2xl md:text-3xl font-bold tracking-tight">Projects I am building, testing, or circling</h3>
+            </div>
+            <span className="hidden md:inline font-mono text-xs text-gray-600">03</span>
+          </div>
+          <div className="grid gap-4 md:grid-cols-4">
+            {upcomingProjects.map((project, index) => (
+              <article
+                key={project.title}
+                className="group flex min-h-[300px] flex-col border border-dashed border-white/15 bg-black/25 p-6 transition-colors hover:border-[#E34234]/45 hover:bg-[#E34234]/[0.035]"
+              >
+                <div className="mb-10 flex items-center justify-between">
+                  <span className="font-mono text-xs text-[#E34234]">{String(index + 1).padStart(2, '0')}</span>
+                  <span className="rounded-full border border-white/10 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-gray-500">
+                    {project.status}
+                  </span>
+                </div>
+                <h4 className="text-xl font-bold tracking-tight text-white">{project.title}</h4>
+                <p className="mt-4 text-sm leading-relaxed text-gray-400">{project.description}</p>
+                <div className="mt-auto flex flex-wrap gap-2 pt-8">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="rounded border border-white/10 px-2 py-1 text-[11px] text-gray-500">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
         </div>
