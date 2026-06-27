@@ -21,19 +21,19 @@ const NEURAL_EDGES: [number, number, number, number][] = [
 
 const VERSIONS = [
   {
-    id: 'IMPERIUM',
+    id: 'archive-01',
     statue: 'https://images.unsplash.com/photo-1608501078713-8e445a709b39?w=800',
     bg: 'https://images.unsplash.com/photo-1543429776-2782fc8e1acd?w=1920',
     neural: false,
   },
   {
-    id: 'BHARAT',
+    id: 'archive-02',
     statue: 'https://images.unsplash.com/photo-1605649487212-47bdab064df7?w=800',
     bg: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1920',
     neural: false,
   },
   {
-    id: 'SENATUS',
+    id: 'archive-03',
     statue: 'https://images.unsplash.com/photo-1564399580075-5dfe19c205f3?w=800',
     bg: 'https://images.unsplash.com/photo-1531572753322-ad063cecc140?w=1920',
     neural: false,
@@ -193,10 +193,6 @@ export default function AtlarionBackground() {
         )}
       </AnimatePresence>
 
-      {/* Brand mark */}
-      <div className="absolute bottom-6 right-6 text-zinc-600 text-xs font-cinzel tracking-widest brand-mark pointer-events-none">
-        SPQR × BHARATA
-      </div>
     </div>
   );
 }

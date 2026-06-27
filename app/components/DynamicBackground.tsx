@@ -431,9 +431,6 @@ export default function DynamicBackground() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/75 pointer-events-none" />
       <div className="vignette" />
       <div className="scan-line" />
-      <div className="absolute bottom-6 right-6 text-zinc-600 text-xs font-cinzel tracking-widest brand-mark pointer-events-none">
-        SPQR × BHARATA
-      </div>
     </div>
   );
 }
