@@ -225,7 +225,7 @@ export function Hero() {
             </span>
             Open to research
           </span>
-          <span className="relative z-10 animate-pulse-subtle text-text-primary">+ Summer 2027 internships</span>
+          <span className="relative z-10 animate-pulse-subtle text-text-primary">+ Winter/Spring 2027 internships</span>
         </div>
       </div>
     </section>

@@ -176,7 +176,7 @@ function SoftwareProjects() {
   return (
     <div className="space-y-16">
       <div className="group grid gap-10 lg:grid-cols-[1.3fr_1fr]">
-        {/* Pattern OS dashboard with circuit background */}
+        {/* ZON3 world-model dashboard with circuit background */}
         <div className="relative overflow-hidden border border-border-card bg-black-elevated transition-all duration-500 group-hover:border-vermilion/20 group-hover:shadow-[0_0_40px_rgba(220,38,38,0.04)]">
           {/* Circuit schematic — screen-blended inside the dashboard card */}
           <div
@@ -200,7 +200,7 @@ function SoftwareProjects() {
             <div className="flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-vermilion/60" />
               <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-text-muted">
-                Pattern OS — Dashboard
+                ZON3 — World Model
               </span>
             </div>
           </div>
@@ -208,7 +208,7 @@ function SoftwareProjects() {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <span className="w-20 text-[10px] uppercase tracking-[0.12em] text-text-muted">
-                  Signal Bus
+                  Perception Bus
                 </span>
                 <div className="flex-1">
                   <AnimatedSignalBars />
@@ -216,10 +216,10 @@ function SoftwareProjects() {
               </div>
               <div className="flex items-center gap-3 border-t border-border-subtle pt-4">
                 <span className="w-20 text-[10px] uppercase tracking-[0.12em] text-text-muted">
-                  AI Planner
+                  Planner
                 </span>
                 <div className="flex flex-1 gap-2">
-                  {["Schedule", "Priority", "Context"].map((l) => (
+                  {["Perception", "Prediction", "Trajectory"].map((l) => (
                     <span key={l} className="border border-border-subtle px-2 py-1 text-[10px] uppercase tracking-[0.1em] text-text-secondary transition-colors hover:border-vermilion/30">
                       {l}
                     </span>
@@ -228,32 +228,32 @@ function SoftwareProjects() {
               </div>
               <div className="flex items-center gap-3 border-t border-border-subtle pt-4">
                 <span className="w-20 text-[10px] uppercase tracking-[0.12em] text-text-muted">
-                  Sync
+                  Pipeline
                 </span>
                 <div className="flex flex-1 gap-3 text-[10px] uppercase tracking-[0.1em] text-text-muted">
                   <span className="flex items-center gap-1">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] animate-pulse" />
-                    Notion
+                    Recorded Runs
                   </span>
                   <span className="flex items-center gap-1">
                     <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] animate-pulse" style={{ animationDelay: "0.5s" }} />
-                    Calendar
+                    Replay Harness
                   </span>
                   <span className="flex items-center gap-1">
                     <span className="h-1.5 w-1.5 rounded-full bg-vermilion/60 animate-pulse" style={{ animationDelay: "1s" }} />
-                    Pattern Detection
+                    Regression Check
                   </span>
                 </div>
               </div>
               <div className="border-t border-border-subtle pt-4">
                 <div className="mb-3 text-[10px] uppercase tracking-[0.12em] text-text-muted">
-                  Detected Patterns
+                  Replay Checks
                 </div>
                 <div className="space-y-1.5">
                   {[
-                    { label: "Productivity peak", range: "09:00 — 12:00", conf: "87%", barW: "87%" },
-                    { label: "Deep work window", range: "14:00 — 17:00", conf: "76%", barW: "76%" },
-                    { label: "Context switch cost", range: "avg 12 min", conf: "93%", barW: "93%" },
+                    { label: "World-model drift", range: "vs. recorded run", conf: "0.4%", barW: "4%" },
+                    { label: "Trajectory error", range: "closed-loop replay", conf: "1.2%", barW: "12%" },
+                    { label: "Regression coverage", range: "recorded scenarios", conf: "97%", barW: "97%" },
                   ].map((p) => (
                     <div key={p.label} className="group/row overflow-hidden border border-border-subtle px-3 py-2 transition-all duration-300 hover:border-vermilion/20 hover:bg-black-surface/50">
                       <div className="relative flex items-center justify-between">
@@ -280,19 +280,22 @@ function SoftwareProjects() {
             Featured Project
           </div>
           <h3 className="font-display text-2xl font-semibold tracking-[-0.02em] text-text-primary lg:text-3xl">
-            Pattern OS
+            ZON3
           </h3>
           <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.15em] text-text-muted">
-            Personal Intelligence Infrastructure
+            World-Model Architecture &amp; Closed-Loop Simulation
           </div>
           <p className="mt-4 font-body text-sm leading-relaxed text-text-secondary">
-            An AI-native operating system for personal intelligence. Pattern OS
-            continuously analyzes your digital behavior, syncs with Notion and
-            Calendar, detects productivity patterns, and builds a dynamic model
-            of how you work, think, and decide.
+            A vision-first perception and planning architecture: per-sensor
+            input into a unified world model, multi-agent state prediction,
+            and trajectory planning across multiple independently acting
+            agents. Validated through a closed-loop replay harness that
+            scores every change against the same recorded dataset, so a
+            regression surfaces in simulation before it ever reaches
+            hardware.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
-            {["AI Planning", "Pattern Detection", "Notion Sync", "Calendar Integration"].map((tag) => (
+            {["World Models", "Simulation", "Trajectory Planning", "Closed-Loop Replay"].map((tag) => (
               <span key={tag} className="border border-border-subtle px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.12em] text-text-muted transition-colors hover:border-vermilion/30 hover:text-vermilion">
                 {tag}
               </span>
@@ -473,9 +476,9 @@ function ComingSoonProjects() {
       tags: ["RF", "Hardware AI", "Diagnostics"],
     },
     {
-      title: "ZON3",
-      desc: "A vision-first autonomy intelligence platform for road-world modeling, trajectory planning, fleet validation, and hard-case mining.",
-      tags: ["Autonomy", "World Models", "Fleet AI"],
+      title: "RunLedger",
+      desc: "A data and telemetry tool built around immutable run history and failure capture. Status-machine checks gate every state transition so a run's recorded history cannot drift from what actually executed.",
+      tags: ["Python", "FastAPI", "PostgreSQL", "CI"],
     },
   ];
 
