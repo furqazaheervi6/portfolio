@@ -15,9 +15,9 @@ import appMetaJson from "../app-meta.json";
 
 declare const __HF_DESIGN_INSPECTOR__: boolean;
 
-const DEFAULT_TITLE = "Furqan Zaheer — Biophysics, Neural Engineering & ML";
+const DEFAULT_TITLE = "Furqan Zaheer | Biology, Neurotechnology & Engineering";
 const DEFAULT_DESCRIPTION =
-  "Biophysics undergraduate building across neural engineering, machine learning, biological systems, software, mathematics, and personal intelligence tools.";
+  "Biology Co-op student at UBC with interests in biophysics, neurotechnology, machine learning and complex systems. Explore team contributions and clearly labeled design studies.";
 
 type AppMeta = {
   og_title?: string | null;
@@ -192,5 +192,3 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
-
-

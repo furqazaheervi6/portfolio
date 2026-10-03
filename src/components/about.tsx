@@ -1,9 +1,10 @@
 import { ScrollReveal } from "./scroll-reveal";
-import { AnimatedCounter } from "./animated-counter";
 import { TextHoverViz } from "./text-hover-viz";
 
-const circuitUrl = "https://d2ol7oe51mr4n9.cloudfront.net/user_2xwIPr50KlEwsiMAVmRtkFMSPij/2b36a9a7-79fb-4b23-8b40-8a10e3ed0eff.jpg";
-const handGearsUrl = "https://d2ol7oe51mr4n9.cloudfront.net/user_2xwIPr50KlEwsiMAVmRtkFMSPij/1d03e0de-f890-424c-9a39-c78aeb2ab9b3.jpg";
+const circuitUrl =
+  "https://d2ol7oe51mr4n9.cloudfront.net/user_2xwIPr50KlEwsiMAVmRtkFMSPij/2b36a9a7-79fb-4b23-8b40-8a10e3ed0eff.jpg";
+const handGearsUrl =
+  "https://d2ol7oe51mr4n9.cloudfront.net/user_2xwIPr50KlEwsiMAVmRtkFMSPij/1d03e0de-f890-424c-9a39-c78aeb2ab9b3.jpg";
 const aboutBackgroundUrl = "/images/about-iroh.jpeg";
 
 export function About() {
@@ -96,64 +97,40 @@ export function About() {
             <div className="space-y-6 font-body text-sm leading-relaxed text-text-secondary">
               <TextHoverViz className="rounded-sm">
                 <p className="font-body relative z-10">
-                  Hey! Thanks for stopping by. My name is Furqan, I am a 3rd
-                  year undergrad at UBC pursuing Biophysics! I am intensely
-                  focused on the intersection between neural engineering,
-                  machine learning, biological systems, as well as physical AI
-                  systems. Expansively so, my work spans building tons of cool
-                  stuff! From BCI beanies and biological modelling, to robotic
-                  limbs and telepathic systems, I am only limited by my
-                  imagination!
+                  Hey! I'm Furqan, a Biology Co-op student at UBC drawn to biophysics,
+                  neurotechnology and engineering. I love complex systems, living and engineered,
+                  and the possibilities of biomorphic design.
                 </p>
               </TextHoverViz>
               <p>
-                The way I think is pretty simple: if something feels impossible,
-                I want to break it down until it becomes buildable. Neural
-                signals, mathematical theory, systems architecture, biology, and
-                software all feel connected to me because they are different ways
-                of asking how information moves, transforms, and becomes action.
+                I was part of UBC MINT's MindTap team, whose EEG-based smartphone-control project
+                received the 2026 Innovation Award in honour of Ari Kinarthy at the Simon Cox
+                Student Design Competition.{" "}
+                <a
+                  href="https://engineering.ok.ubc.ca/2026/05/21/ubc-engineering-teams-sweep-podium-at-simon-cox-student-design-competition/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-vermilion underline underline-offset-4"
+                >
+                  UBC coverage
+                </a>
+                {" · "}
+                <a
+                  href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7454802572634365952/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-vermilion underline underline-offset-4"
+                >
+                  Team credit
+                </a>
               </p>
               <p>
-                Right now I am especially curious about how linear algebra,
-                computational theory, biophysical mathematics, and machine
-                learning can help decode living systems. I want my work to feel
-                expansive, imaginative, and useful, the kind of work that turns
-                strange ideas into real systems people can touch, test, and build
-                on.
+                My broader interests span nanotechnology, battery engineering, quantum science,
+                computer architecture, deep learning, foundation models and ML infrastructure,
+                alongside a love of community, entrepreneurship, deep-tech and neurotech.
               </p>
             </div>
           </ScrollReveal>
-        </div>
-
-        {/* Stats row */}
-        <div className="relative mt-20 grid grid-cols-2 gap-px border-t border-border-subtle bg-border-subtle lg:grid-cols-4">
-          {[
-            { label: "Domains", value: 6, icon: "◆" },
-            { label: "Projects Built", value: 12, icon: "◇", suffix: "+" },
-            { label: "Research Areas", value: 5, icon: "○" },
-            { label: "Active Systems", value: 4, icon: "△" },
-          ].map((stat, i) => (
-            <ScrollReveal key={stat.label} delay={200 + i * 100}>
-              <div className="group relative bg-black-deep/90 px-6 py-8 backdrop-blur-sm transition-all duration-300 hover:bg-black-elevated/90 lg:px-10 lg:py-10">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs text-vermilion/40 transition-all duration-300 group-hover:text-vermilion/70">
-                    {stat.icon}
-                  </span>
-                  <AnimatedCounter
-                    end={stat.value}
-                    suffix={stat.suffix || ""}
-                    duration={1800}
-                    delay={i * 200}
-                    className="font-mono text-[28px] font-medium leading-none tracking-tight text-vermilion transition-all duration-300 group-hover:tracking-[-0.02em] lg:text-[36px]"
-                  />
-                </div>
-                <div className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-text-muted">
-                  {stat.label}
-                </div>
-                <div className="mt-2 h-[1px] w-0 bg-gradient-to-r from-vermilion/20 to-transparent transition-all duration-500 group-hover:w-full" />
-              </div>
-            </ScrollReveal>
-          ))}
         </div>
       </div>
     </section>
