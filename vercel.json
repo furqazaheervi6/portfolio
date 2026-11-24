@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://furq4n.com/",
+      "permanent": false
+    },
+    {
       "source": "/:path*",
       "destination": "https://furq4n.com/:path*",
       "permanent": false
